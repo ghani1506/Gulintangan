@@ -1,0 +1,44 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    margin: 20px;
+}
+
+.caklempong-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.upper-row, .lower-row {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px;
+}
+
+.gong {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    background-color: gold;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.gong:hover {
+    background-color: orange;
+}
+
+.placeholder {
+    visibility: hidden;
+}
