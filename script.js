@@ -22,6 +22,13 @@ document.addEventListener("DOMContentLoaded", function () {
             } else {
                 console.log(`Audio file not found: audio/${note}.mp3`);
             }
+
+            // Add visual feedback for better user experience
+            this.classList.add("active");
         }, { passive: false }); // Ensure event is not passive to allow multitouch
+
+        button.addEventListener("pointerup", function () {
+            this.classList.remove("active"); // Remove visual feedback when released
+        });
     });
 });
