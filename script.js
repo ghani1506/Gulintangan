@@ -11,7 +11,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     buttons.forEach(button => {
-        button.addEventListener("pointerdown", function () { // Using pointerdown for instant response
+        button.addEventListener("pointerdown", function (event) { // Using pointerdown for instant response
+            event.preventDefault(); // Prevent default behavior to allow multitouch
             const note = this.getAttribute("data-note");
 
             if (sounds[note]) {
@@ -21,6 +22,6 @@ document.addEventListener("DOMContentLoaded", function () {
             } else {
                 console.log(`Audio file not found: audio/${note}.mp3`);
             }
-        });
+        }, { passive: false }); // Ensure event is not passive to allow multitouch
     });
 });
