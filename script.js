@@ -6,15 +6,16 @@ document.addEventListener("DOMContentLoaded", function () {
         const note = button.getAttribute("data-note");
         if (note) {
             sounds[note] = new Audio(`audio/${note}.mp3`);
-            sounds[note].load(); // Preload audio to prevent delay
+            sounds[note].preload = "auto";
         }
     });
 
     buttons.forEach(button => {
-        button.addEventListener("click", function () {
+        button.addEventListener("pointerdown", function () { // Using pointerdown for instant response
             const note = this.getAttribute("data-note");
 
             if (sounds[note]) {
+                sounds[note].pause(); // Stop previous sound instantly
                 sounds[note].currentTime = 0;
                 sounds[note].play().catch(error => console.log("Audio playback error:", error));
             } else {
