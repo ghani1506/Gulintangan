@@ -1,0 +1,38 @@
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+h1 {
+    margin-top: 20px;
+}
+
+.caklempong-container {
+    margin-top: 20px;
+}
+
+.caklempong {
+    width: 80px;
+    height: 80px;
+    margin: 5px;
+    border: none;
+    background-color: gold;
+    border-radius: 50%;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+}
+
+.caklempong:hover {
+    background-color: orange;
+}
+
+.sharp {
+    background-color: darkgray;
+}
+
+.flat {
+    background-color: darkgray;
+}
