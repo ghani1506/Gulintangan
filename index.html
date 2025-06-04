@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Interactive Gamelan (C3–C4)</title>
+  <script src="https://unpkg.com/tone@latest/build/Tone.js"></script>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      background: #fceabb;
+      padding: 20px;
+    }
+    h1 {
+      margin-bottom: 30px;
+    }
+    .note-button {
+      margin: 10px;
+      padding: 20px;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      background-color: #ffcc80;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+      cursor: pointer;
+      transition: transform 0.1s ease;
+    }
+    .note-button:active {
+      transform: scale(0.95);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎶 Gamelan Notes C3–C4</h1>
+  <div id="gamelan-buttons"></div>
+
+  <script>
+    const synth = new Tone.Sampler({
+      urls: {
+        "C3": "C3.mp3", "D3": "D3.mp3", "E3": "E3.mp3", "F3": "F3.mp3",
+        "G3": "G3.mp3", "A3": "A3.mp3", "B3": "B3.mp3", "C4": "C4.mp3"
+      },
+      baseUrl: "https://tonejs.github.io/audio/salamander/",
+      onload: () => console.log("Samples loaded.")
+    }).toDestination();
+
+    const notes = ["C3", "D3", "E3", "F3", "G3", "A3", "B3", "C4"];
+    const container = document.getElementById("gamelan-buttons");
+
+    notes.forEach(note => {
+      const button = document.createElement("button");
+      button.innerText = note;
+      button.className = "note-button";
+      button.addEventListener("click", () => {
+        Tone.start(); // unlock audio on first click
+        synth.triggerAttackRelease(note, "4n");
+      });
+      container.appendChild(button);
+    });
+  </script>
+
+</body>
+</html>
