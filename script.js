@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     buttons.forEach(button => {
         const note = button.getAttribute("data-note");
         if (note) {
-            sounds[note] = new Audio(`audio/${note}.mp3`);
+            sounds[note] = new Audio(`audio/${note}.WAV`);
             sounds[note].preload = "auto";
         }
     });
