@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 sounds[note].currentTime = 0;
                 sounds[note].play().catch(error => console.log("Audio playback error:", error));
             } else {
-                console.log(`Audio file not found: audio/${note}.mp3`);
+                console.log(`Audio file not found: audio/${note}.WAV`);
             }
 
             // Add visual feedback for better user experience
